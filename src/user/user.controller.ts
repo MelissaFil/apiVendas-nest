@@ -21,7 +21,7 @@ export class UserController {
     }
 
     @Get('/:id')
-    async getUserById(@Param('id') id:number): Promise<UserEntity>{
-        return this.userService.getAddressByUser(id);
+    async getUserById(@Param('id') id:number): Promise<ReturnUserDto>{
+        return new ReturnUserDto( await this.userService.getAddressByUser(id));
     }
 }
