@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { StateModule } from './state/state.module';
+import { AddressModule } from './address/address.module';
 
 
 @Module({
@@ -20,7 +22,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       migrations:[`${__dirname}/migration/{.ts,*.js}`],
       migrationsRun: true,
     }),
-    UserModule],
+    UserModule,
+    StateModule,
+    AddressModule],
+  controllers: [],
 })
 export class AppModule {}
 
