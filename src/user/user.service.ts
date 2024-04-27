@@ -42,4 +42,11 @@ export class UserService {
         return user;
         
     }
+
+    async getAddressByUser(id:number): Promise<UserEntity>{
+        return this.userRepository.findOne({
+            where:{id},
+            relations:['addresses']
+        })
+    }
 }
