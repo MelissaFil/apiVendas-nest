@@ -30,7 +30,8 @@ export class AddressService {
             return this.addressRepository.find({
                 where:{
                     userId
-                }
+                },
+                relations:['city']
             })
         }
 }
