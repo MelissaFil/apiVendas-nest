@@ -22,7 +22,9 @@ export class CityService {
         const cities = await this.cityRepository.find({
             where:{
                 stateId
-            }
+
+            },
+            relations:['state'],
         });
 
         await this.cacheManager.set(`state_${stateId}`,cities);
@@ -32,7 +34,9 @@ export class CityService {
 
     async getCityById (id:number): Promise<CityEntity>{
         const city = await this.cityRepository.findOne({
-            where:{id}
+            where:{id},
+            relations:['state'],
+            
         })
 
         if(!city){
