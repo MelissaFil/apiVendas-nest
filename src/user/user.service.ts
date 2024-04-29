@@ -36,7 +36,7 @@ export class UserService {
         })
 
         if(!user){
-            throw new NotFoundException('UserId not found');
+            throw new NotFoundException('UserId not found!');
         }
         
         return user;
@@ -48,5 +48,15 @@ export class UserService {
             where:{id},
             relations:{addresses:{city:{state:true}}}
         })
+    }
+
+    async getUserByEmail(email:string): Promise<UserEntity>{
+        const user = await this.userRepository.findOne({
+            where:{email}
+        })
+        if(!user){
+            throw new NotFoundException('Email not found!')
+        }
+        return user
     }
 }

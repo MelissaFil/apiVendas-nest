@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { StateModule } from './state/state.module';
 import { AddressModule } from './address/address.module';
 import { CityModule } from './city/city.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -26,7 +27,8 @@ import { CityModule } from './city/city.module';
     UserModule,
     StateModule,
     AddressModule,
-    CityModule],
+    CityModule,
+    AuthModule],
   controllers: [],
 })
 export class AppModule {}
